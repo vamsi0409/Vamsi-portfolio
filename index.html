@@ -9,269 +9,78 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #0a0a0a;
-    --surface: #111111;
-    --surface2: #181818;
-    --border: #222222;
-    --accent: #c8a96e;
-    --accent2: #e8c98e;
-    --text: #f0ede8;
-    --text-muted: #888880;
-    --text-dim: #555550;
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'DM Sans', sans-serif;
+    --bg: #0a0a0a; --surface: #111111; --surface2: #181818;
+    --border: #222222; --accent: #c8a96e; --accent2: #e8c98e;
+    --text: #f0ede8; --text-muted: #888880; --text-dim: #555550;
+    --font-display: 'Playfair Display', serif; --font-body: 'DM Sans', sans-serif;
   }
-
   html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.2rem 4rem;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--accent);
-    letter-spacing: 0.02em;
-  }
+  .nav-logo { font-family: var(--font-display); font-size: 1.2rem; color: var(--accent); letter-spacing: 0.02em; }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
-  .nav-badge {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 0.3rem 0.9rem;
-    border-radius: 20px;
-    letter-spacing: 0.06em;
-  }
+  .nav-badge { font-size: 0.75rem; font-weight: 500; color: var(--accent); border: 1px solid var(--accent); padding: 0.3rem 0.9rem; border-radius: 20px; letter-spacing: 0.06em; }
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: flex-start; justify-content: center;
-    padding: 8rem 4rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-meta {
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 2rem;
-    opacity: 0.8;
-  }
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(4rem, 10vw, 8rem);
-    font-weight: 900;
-    line-height: 0.95;
-    margin-bottom: 2.5rem;
-    color: var(--text);
-  }
+  #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden; }
+  .hero-meta { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; opacity: 0.8; }
+  .hero-title { font-family: var(--font-display); font-size: clamp(4rem, 10vw, 8rem); font-weight: 900; line-height: 0.95; margin-bottom: 2.5rem; color: var(--text); }
   .hero-title em { color: var(--accent); font-style: italic; }
-  .hero-quote {
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-style: italic;
-    max-width: 500px;
-    margin-bottom: 3rem;
-    border-left: 2px solid var(--accent);
-    padding-left: 1.2rem;
-  }
+  .hero-quote { font-size: 1rem; color: var(--text-muted); font-style: italic; max-width: 500px; margin-bottom: 3rem; border-left: 2px solid var(--accent); padding-left: 1.2rem; }
   .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0a0a;
-    padding: 0.85rem 2.2rem;
-    border: none; border-radius: 2px;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-  }
+  .btn-primary { background: var(--accent); color: #0a0a0a; padding: 0.85rem 2.2rem; border: none; border-radius: 2px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.2s; }
   .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--text);
-    padding: 0.85rem 2.2rem;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
+  .btn-secondary { background: transparent; color: var(--text); padding: 0.85rem 2.2rem; border: 1px solid var(--border); border-radius: 2px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-  .hero-stats {
-    position: absolute; bottom: 4rem; right: 4rem;
-    display: flex; gap: 3rem;
-  }
+  .hero-stats { position: absolute; bottom: 4rem; right: 4rem; display: flex; gap: 3rem; }
   .stat { text-align: right; }
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 0.3rem;
-  }
+  .stat-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; color: var(--accent); line-height: 1; }
+  .stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; }
 
-  /* scrolling ticker */
-  .ticker-wrap {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    overflow: hidden;
-    padding: 0.9rem 0;
-  }
-  .ticker {
-    display: flex;
-    gap: 0;
-    animation: ticker 30s linear infinite;
-    white-space: nowrap;
-    width: max-content;
-  }
-  .ticker span {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 0 2rem;
-  }
+  .ticker-wrap { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 0.9rem 0; }
+  .ticker { display: flex; gap: 0; animation: ticker 30s linear infinite; white-space: nowrap; width: max-content; }
+  .ticker span { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 0 2rem; }
   .ticker span b { color: var(--accent); }
   @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  /* ── SECTIONS ── */
   section { padding: 7rem 4rem; }
-  .section-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 3rem;
-    color: var(--text);
-  }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; margin-bottom: 3rem; color: var(--text); }
   .section-title em { color: var(--accent); font-style: italic; }
 
-  /* ── ABOUT ── */
   #about { background: var(--surface); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-  .about-text p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
   .about-text p b { color: var(--text); }
-  .about-stats {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1.5rem; margin-top: 3rem;
-  }
-  .astat {
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-    border-radius: 2px;
-  }
-  .astat-num {
-    font-family: var(--font-display);
-    font-size: 2.2rem;
-    color: var(--accent);
-    font-weight: 700;
-  }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+  .astat { border: 1px solid var(--border); padding: 1.5rem; border-radius: 2px; }
+  .astat-num { font-family: var(--font-display); font-size: 2.2rem; color: var(--accent); font-weight: 700; }
   .astat-label { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.3rem; }
-
   .about-details { display: flex; flex-direction: column; gap: 1rem; }
-  .detail-block {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-    border-radius: 2px;
-  }
+  .detail-block { background: var(--surface2); border: 1px solid var(--border); padding: 1.5rem; border-radius: 2px; }
   .detail-block h4 { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem; }
   .detail-block p { font-size: 0.95rem; color: var(--text); }
-
-  .quote-block {
-    grid-column: 1 / -1;
-    border-left: 3px solid var(--accent);
-    padding: 1.5rem 2rem;
-    background: var(--surface2);
-    margin-top: 1rem;
-  }
+  .quote-block { grid-column: 1 / -1; border-left: 3px solid var(--accent); padding: 1.5rem 2rem; background: var(--surface2); margin-top: 1rem; }
   .quote-block p { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: var(--text-muted); }
   .quote-block cite { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.5rem; display: block; }
 
-  /* ── PROCESS ── */
   #process { background: var(--bg); }
   .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-  .process-card {
-    border: 1px solid var(--border);
-    padding: 2rem 1.8rem;
-    border-radius: 2px;
-    background: var(--surface);
-    transition: border-color 0.2s;
-  }
+  .process-card { border: 1px solid var(--border); padding: 2rem 1.8rem; border-radius: 2px; background: var(--surface); transition: border-color 0.2s; }
   .process-card:hover { border-color: var(--accent); }
   .process-num { font-family: var(--font-display); font-size: 3rem; color: var(--accent); font-weight: 700; opacity: 0.4; line-height: 1; margin-bottom: 1rem; }
   .process-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem; }
   .process-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
 
-  /* ── SKILLS ── */
   #skills { background: var(--surface); }
   .skills-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
   .skills-intro p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; }
@@ -280,78 +89,42 @@
   .skill-name { width: 180px; font-size: 0.9rem; font-weight: 500; flex-shrink: 0; }
   .skill-sub { font-size: 0.75rem; color: var(--text-dim); display: block; }
   .skill-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
-  .skill-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 1.5s ease; }
+  .skill-fill { height: 100%; background: var(--accent); border-radius: 2px; }
   .skill-pct { width: 36px; text-align: right; font-size: 0.8rem; color: var(--text-dim); }
 
-  /* ── PROJECTS ── */
   #projects { background: var(--bg); }
   .projects-list { display: flex; flex-direction: column; gap: 5rem; }
-  .project-card {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-    align-items: center;
-    padding: 3rem;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    border-radius: 2px;
-    transition: border-color 0.3s;
-  }
+  .project-card { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; padding: 3rem; border: 1px solid var(--border); background: var(--surface); border-radius: 2px; transition: border-color 0.3s; }
   .project-card:hover { border-color: var(--accent); }
   .project-card.reverse { direction: rtl; }
   .project-card.reverse > * { direction: ltr; }
-  .project-img {
-    aspect-ratio: 16/10;
-    overflow: hidden;
-    border-radius: 2px;
-    border: 1px solid var(--border);
-  }
+  .project-img { aspect-ratio: 16/10; overflow: hidden; border-radius: 2px; border: 1px solid var(--border); }
   .project-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%) brightness(0.85); transition: filter 0.4s; }
   .project-card:hover .project-img img { filter: grayscale(0%) brightness(0.95); }
-  .project-tag {
-    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 0.6rem;
-  }
+  .project-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
   .project-num { font-family: var(--font-display); font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.5rem; }
-  .project-title {
-    font-family: var(--font-display);
-    font-size: 2rem; font-weight: 700;
-    line-height: 1.15; margin-bottom: 1rem;
-  }
+  .project-title { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
   .project-title em { color: var(--accent); font-style: italic; }
   .project-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-  .ptag {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--text-dim);
-    border: 1px solid var(--border); padding: 0.3rem 0.8rem; border-radius: 2px;
-  }
-  .project-bullets { list-style: none; }
-  .project-bullets li {
-    font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;
-    padding: 0.4rem 0; border-top: 1px solid var(--border);
-    padding-left: 1rem; position: relative;
-  }
+  .ptag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); border: 1px solid var(--border); padding: 0.3rem 0.8rem; border-radius: 2px; }
+  .project-bullets { list-style: none; margin-bottom: 1.5rem; }
+  .project-bullets li { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; padding: 0.4rem 0; border-top: 1px solid var(--border); padding-left: 1rem; position: relative; }
   .project-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .project-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .project-link { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 0.4rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .project-link:hover { background: var(--accent); color: #0a0a0a; }
+  .project-link.secondary { color: var(--text-muted); border-color: var(--border); }
+  .project-link.secondary:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
 
-  /* project metrics bar */
-  .project-metrics {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem; margin-top: 3rem; padding-top: 3rem;
-    border-top: 1px solid var(--border);
-  }
+  .project-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border); }
   .metric { text-align: center; }
   .metric-num { font-family: var(--font-display); font-size: 2rem; color: var(--accent); font-weight: 700; }
   .metric-label { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.05em; margin-top: 0.3rem; }
 
-  /* ── EDUCATION ── */
   #education { background: var(--surface); }
   .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-  .edu-card {
-    border: 1px solid var(--border); border-radius: 2px; overflow: hidden;
-    background: var(--surface2);
-    transition: border-color 0.2s;
-  }
+  .edu-card { border: 1px solid var(--border); border-radius: 2px; overflow: hidden; background: var(--surface2); transition: border-color 0.2s; }
   .edu-card:hover { border-color: var(--accent); }
   .edu-img { aspect-ratio: 16/7; overflow: hidden; }
   .edu-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) brightness(0.6); }
@@ -362,21 +135,15 @@
   .edu-date { font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem; }
   .edu-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; }
 
-  /* ── CERTS ── */
   #certs { background: var(--bg); }
   .certs-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .cert-card {
-    border: 1px solid var(--border); padding: 2rem; border-radius: 2px;
-    background: var(--surface); display: flex; align-items: flex-start; gap: 1.2rem;
-    transition: border-color 0.2s;
-  }
+  .cert-card { border: 1px solid var(--border); padding: 2rem; border-radius: 2px; background: var(--surface); display: flex; align-items: flex-start; gap: 1.2rem; transition: border-color 0.2s; }
   .cert-card:hover { border-color: var(--accent); }
   .cert-icon { font-size: 2rem; flex-shrink: 0; }
   .cert-num { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
   .cert-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
   .cert-issuer { font-size: 0.82rem; color: var(--text-muted); }
 
-  /* ── CONTACT ── */
   #contact { background: var(--surface); }
   .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
   .contact-img { aspect-ratio: 4/3; overflow: hidden; border-radius: 2px; border: 1px solid var(--border); }
@@ -385,25 +152,13 @@
   .contact-body h2 em { color: var(--accent); font-style: italic; }
   .contact-body p { color: var(--text-muted); line-height: 1.8; margin-bottom: 2.5rem; }
   .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-  .clink {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1rem 1.5rem; border: 1px solid var(--border);
-    border-radius: 2px; text-decoration: none;
-    color: var(--text); transition: border-color 0.2s, color 0.2s;
-    background: var(--surface2);
-  }
+  .clink { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border: 1px solid var(--border); border-radius: 2px; text-decoration: none; color: var(--text); transition: border-color 0.2s, color 0.2s; background: var(--surface2); }
   .clink:hover { border-color: var(--accent); color: var(--accent); }
   .clink-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--border); border-radius: 2px; font-size: 0.85rem; flex-shrink: 0; }
   .clink-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
   .clink-value { font-size: 0.9rem; font-weight: 500; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 2rem 4rem;
-    display: flex; justify-content: space-between; align-items: center;
-  }
+  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
   .footer-name { font-family: var(--font-display); color: var(--text-muted); font-size: 0.9rem; }
   .footer-copy { font-size: 0.8rem; color: var(--text-dim); }
   .footer-links { display: flex; gap: 1.5rem; }
@@ -411,22 +166,18 @@
   .footer-links a:hover { color: var(--accent); }
 
   @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    section { padding: 4rem 1.5rem; }
-    #hero { padding: 7rem 1.5rem 4rem; }
+    nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; } #hero { padding: 7rem 1.5rem 4rem; }
     .hero-stats { position: static; margin-top: 3rem; flex-wrap: wrap; gap: 2rem; }
     .about-grid, .skills-layout, .process-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .project-card { grid-template-columns: 1fr; }
-    .project-card.reverse { direction: ltr; }
-    .certs-list { grid-template-columns: 1fr; }
+    .project-card { grid-template-columns: 1fr; } .project-card.reverse { direction: ltr; }
+    .certs-list { grid-template-columns: 1fr; } .project-metrics { grid-template-columns: repeat(2,1fr); }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">V. Batchu</div>
   <ul class="nav-links">
@@ -439,51 +190,48 @@
   <span class="nav-badge">Available for hire</span>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-  <p class="hero-meta">Data Analyst &nbsp;·&nbsp; St. Louis, MO &nbsp;·&nbsp; 2025</p>
+  <p class="hero-meta">Data Analyst &nbsp;·&nbsp; St. Louis, MO &nbsp;·&nbsp; 2026</p>
   <h1 class="hero-title">Vamsi<br/>Batchu <em>.</em></h1>
-  <p class="hero-quote">"Turning raw data into clarity, decisions, and systems that scale."</p>
+  <p class="hero-quote">"I found that Tables was losing $17,725 despite $206K in sales. I found that New York's COVID fatality rate was double California's despite fewer cases. These are the findings that change decisions."</p>
   <div class="hero-btns">
     <a href="#projects" class="btn-primary">View My Work</a>
     <a href="#contact" class="btn-secondary">Get In Touch</a>
   </div>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Projects</div></div>
-    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Skills</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Projects</div></div>
+    <div class="stat"><div class="stat-num">24</div><div class="stat-label">SQL Queries</div></div>
     <div class="stat"><div class="stat-num">2026</div><div class="stat-label">Graduating</div></div>
   </div>
 </section>
 
-<!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker">
-    <span><b>Python</b> ✦</span><span><b>SQL</b> ✦</span><span><b>Power BI</b> ✦</span><span><b>Pandas</b> ✦</span><span><b>AWS</b> ✦</span><span><b>Data Analytics</b> ✦</span><span><b>TOGAF</b> ✦</span><span><b>Chart.js</b> ✦</span><span><b>GitHub</b> ✦</span><span><b>Airtable</b> ✦</span><span><b>Info Systems</b> ✦</span>
-    <span><b>Python</b> ✦</span><span><b>SQL</b> ✦</span><span><b>Power BI</b> ✦</span><span><b>Pandas</b> ✦</span><span><b>AWS</b> ✦</span><span><b>Data Analytics</b> ✦</span><span><b>TOGAF</b> ✦</span><span><b>Chart.js</b> ✦</span><span><b>GitHub</b> ✦</span><span><b>Airtable</b> ✦</span><span><b>Info Systems</b> ✦</span>
+    <span><b>Python</b> ✦</span><span><b>SQL</b> ✦</span><span><b>Tableau</b> ✦</span><span><b>Power BI</b> ✦</span><span><b>Pandas</b> ✦</span><span><b>Scikit-learn</b> ✦</span><span><b>AWS</b> ✦</span><span><b>Chart.js</b> ✦</span><span><b>GitHub</b> ✦</span><span><b>Machine Learning</b> ✦</span><span><b>ETL Pipelines</b> ✦</span><span><b>Data Analytics</b> ✦</span>
+    <span><b>Python</b> ✦</span><span><b>SQL</b> ✦</span><span><b>Tableau</b> ✦</span><span><b>Power BI</b> ✦</span><span><b>Pandas</b> ✦</span><span><b>Scikit-learn</b> ✦</span><span><b>AWS</b> ✦</span><span><b>Chart.js</b> ✦</span><span><b>GitHub</b> ✦</span><span><b>Machine Learning</b> ✦</span><span><b>ETL Pipelines</b> ✦</span><span><b>Data Analytics</b> ✦</span>
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <p class="section-label">About</p>
   <div class="about-grid">
     <div class="about-text">
       <h2 class="section-title">Who Is <em>Vamsi.</em> Really.</h2>
-      <p>I'm a <b>detail-obsessed Data Analyst</b> and systems thinker pursuing my M.S. in Information Systems at Saint Louis University. I came to the USA from India with a B.E. in Computer Science and an unshakeable drive to <b>build things that matter.</b></p>
-      <p>I turn <b>messy, raw data into clean pipelines</b>, interactive dashboards, and business intelligence that executives actually use — through Python, SQL, Power BI, Pandas, and AWS. From superstore sales analytics to city-level AI governance platforms to healthcare patient analytics.</p>
+      <p>I'm a <b>detail-obsessed Data Analyst</b> completing my M.S. in Information Systems at Saint Louis University. I came to the USA from India with a B.E. in Computer Science and a drive to <b>build things that matter.</b></p>
+      <p>I don't just analyze data — I find the <b>counterintuitive findings</b> that change decisions. A product losing money despite high sales. A top customer who is actually unprofitable. A state with fewer cases but double the fatality rate. I work in Python, SQL, Tableau, and Power BI, and I build dashboards people actually use.</p>
       <p>I speak English, Telugu, and Hindi — and <b>fluently in Python and SQL</b> too.</p>
       <div class="about-stats">
-        <div class="astat"><div class="astat-num">3+</div><div class="astat-label">Projects</div></div>
-        <div class="astat"><div class="astat-num">10+</div><div class="astat-label">Skills</div></div>
-        <div class="astat"><div class="astat-num">3</div><div class="astat-label">Languages</div></div>
-        <div class="astat"><div class="astat-num">2</div><div class="astat-label">Degrees</div></div>
+        <div class="astat"><div class="astat-num">$2.3M</div><div class="astat-label">Sales Data Analyzed</div></div>
+        <div class="astat"><div class="astat-num">80.4%</div><div class="astat-label">ML Model Accuracy</div></div>
+        <div class="astat"><div class="astat-num">15.6K</div><div class="astat-label">Records Analyzed</div></div>
+        <div class="astat"><div class="astat-num">24</div><div class="astat-label">SQL Queries Written</div></div>
       </div>
     </div>
     <div>
       <div class="about-details">
         <div class="detail-block"><h4>Location</h4><p>St. Louis, MO, USA</p></div>
         <div class="detail-block"><h4>Degree</h4><p>M.S. Information Systems</p></div>
-        <div class="detail-block"><h4>University</h4><p>Saint Louis University</p></div>
+        <div class="detail-block"><h4>University</h4><p>Saint Louis University — GPA 3.5/4.0</p></div>
         <div class="detail-block"><h4>Graduating</h4><p>May 2026</p></div>
         <div class="detail-block"><h4>Phone</h4><p>(314) 366-1497</p></div>
         <div class="detail-block"><h4>Email</h4><p>Vamsikrishna.b7891@gmail.com</p></div>
@@ -497,253 +245,205 @@
   </div>
 </section>
 
-<!-- PROCESS -->
 <section id="process">
   <p class="section-label">How I Work</p>
   <h2 class="section-title">My <em>Process.</em></h2>
   <div class="process-grid">
-    <div class="process-card">
-      <div class="process-num">01</div>
-      <div class="process-title">Understand</div>
-      <div class="process-desc">Deep-dive into the business problem. What decision needs to be made? What data exists? What is missing?</div>
-    </div>
-    <div class="process-card">
-      <div class="process-num">02</div>
-      <div class="process-title">Collect &amp; Clean</div>
-      <div class="process-desc">Extract raw data, remove noise, handle nulls, engineer features. Python, Pandas and SQL are my tools of choice.</div>
-    </div>
-    <div class="process-card">
-      <div class="process-num">03</div>
-      <div class="process-title">Analyze &amp; Model</div>
-      <div class="process-desc">Query patterns, build custom KPIs, run trend analysis. Find the signal inside the noise.</div>
-    </div>
-    <div class="process-card">
-      <div class="process-num">04</div>
-      <div class="process-title">Visualize &amp; Deliver</div>
-      <div class="process-desc">Build dashboards stakeholders actually use. Power BI and Chart.js — interactive, drill-down, beautiful.</div>
-    </div>
+    <div class="process-card"><div class="process-num">01</div><div class="process-title">Understand</div><div class="process-desc">Deep-dive into the business problem. What decision needs to be made? What data exists? What question are we really trying to answer?</div></div>
+    <div class="process-card"><div class="process-num">02</div><div class="process-title">Collect &amp; Clean</div><div class="process-desc">Extract raw data, remove noise, handle nulls, engineer features. Python, Pandas and SQL are my tools of choice.</div></div>
+    <div class="process-card"><div class="process-num">03</div><div class="process-title">Analyze &amp; Model</div><div class="process-desc">Write SQL queries, build ML models, run trend analysis. Find the counterintuitive signal inside the noise.</div></div>
+    <div class="process-card"><div class="process-num">04</div><div class="process-title">Visualize &amp; Deliver</div><div class="process-desc">Build dashboards stakeholders actually use. Tableau and Chart.js — interactive, published live, with real findings front and center.</div></div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <p class="section-label">Technical Skills</p>
   <div class="skills-layout">
     <div class="skills-intro">
       <h2 class="section-title">What I <em>Build</em> With.</h2>
-      <p>10+ Tools.<br/>Zero<br/>Compromise.</p>
       <p>Every tool here has been put to work on a real project — not just studied. I build with purpose and precision.</p>
     </div>
     <div class="skills-grid">
-      <div class="skill-row">
-        <div class="skill-name">Python<span class="skill-sub">Core Language</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-        <div class="skill-pct">90%</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name">SQL / MySQL<span class="skill-sub">Data Querying</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-        <div class="skill-pct">88%</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name">Power BI<span class="skill-sub">Visualization</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-        <div class="skill-pct">85%</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name">Pandas<span class="skill-sub">Data Analysis</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:83%"></div></div>
-        <div class="skill-pct">83%</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name">AWS<span class="skill-sub">Cloud Platform</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
-        <div class="skill-pct">78%</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name">HTML / CSS / JS<span class="skill-sub">Frontend Dev</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-        <div class="skill-pct">75%</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name">GitHub<span class="skill-sub">Version Control</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
-        <div class="skill-pct">72%</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name">Airtable / Zapier<span class="skill-sub">Automation</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div>
-        <div class="skill-pct">68%</div>
-      </div>
+      <div class="skill-row"><div class="skill-name">Python<span class="skill-sub">Pandas, NumPy, Scikit-learn</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div><div class="skill-pct">90%</div></div>
+      <div class="skill-row"><div class="skill-name">SQL<span class="skill-sub">MySQL, SQLite, Queries</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div><div class="skill-pct">88%</div></div>
+      <div class="skill-row"><div class="skill-name">Tableau<span class="skill-sub">Dashboards, Tableau Public</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div><div class="skill-pct">85%</div></div>
+      <div class="skill-row"><div class="skill-name">Power BI<span class="skill-sub">DAX, Power Query</span></div><div class="skill-bar"><div class="skill-fill" style="width:83%"></div></div><div class="skill-pct">83%</div></div>
+      <div class="skill-row"><div class="skill-name">Machine Learning<span class="skill-sub">Logistic Reg, Random Forest</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div><div class="skill-pct">80%</div></div>
+      <div class="skill-row"><div class="skill-name">AWS<span class="skill-sub">Cloud Practitioner Certified</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div><div class="skill-pct">78%</div></div>
+      <div class="skill-row"><div class="skill-name">HTML / CSS / JS<span class="skill-sub">Chart.js, Frontend Dev</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div><div class="skill-pct">75%</div></div>
+      <div class="skill-row"><div class="skill-name">GitHub<span class="skill-sub">Version Control, Git</span></div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div><div class="skill-pct">72%</div></div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <p class="section-label">Projects</p>
   <h2 class="section-title">Selected <em>Work.</em></h2>
   <div class="projects-list">
 
-    <!-- PROJECT 1 — Sales -->
+    <!-- PROJECT 1 — CHURN -->
     <div class="project-card">
       <div class="project-img">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85" alt="Sales Dashboard" />
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85" alt="Customer Churn Dashboard" />
       </div>
       <div class="project-info">
-        <p class="project-tag">Data Analytics · 2024</p>
+        <p class="project-tag">Machine Learning · Customer Analytics · Aug – Oct 2025</p>
         <p class="project-num">Featured Project — 01</p>
-        <h3 class="project-title">Sales Performance <em>Dashboard</em></h3>
-        <p class="project-desc">End-to-end analytics pipeline — raw Superstore data transformed into an interactive Power BI board with regional drill-down, customer segmentation, and year-over-year trend analysis.</p>
+        <h3 class="project-title">Customer Churn <em>Prediction</em></h3>
+        <p class="project-desc">Analyzed 7,032 customer records to identify churn drivers and quantify revenue at risk. Month-to-month contracts churned at 42.7% vs 2.8% for two-year — a 15x difference that changes how a retention team prioritizes work.</p>
         <div class="project-tags">
-          <span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">MySQL</span><span class="ptag">Power BI</span><span class="ptag">Data Engineering</span>
+          <span class="ptag">Python</span><span class="ptag">Scikit-learn</span><span class="ptag">SQL</span><span class="ptag">Tableau</span><span class="ptag">Pandas</span>
         </div>
         <ul class="project-bullets">
-          <li>Engineered Profit Margin % and High / Medium / Low customer value tiers in Python</li>
-          <li>SQL for regional sales performance, YoY revenue trends, top 10 products and loss categories</li>
-          <li>5-visualization dashboard — KPI cards, regional map, revenue trend, bar chart, category treemap</li>
-          <li>Dynamic Year &amp; Region slicers enabling stakeholder self-service drill-down</li>
+          <li>$139,130 monthly revenue at risk quantified from 1,869 churned customers</li>
+          <li>Logistic Regression 80.4% accuracy · Random Forest 78.6% accuracy</li>
+          <li>Electronic check customers churn at 45.3% — highest of any payment method</li>
+          <li>8 SQL queries — churn by contract, payment method, internet service, revenue impact</li>
         </ul>
+        <div class="project-links">
+          <a href="https://public.tableau.com/app/profile/vamsi.batchu8113/viz/CustomerChurnAnalysis_17797607527530/CustomerChurnAnalysisDashboard" target="_blank" class="project-link">Live Dashboard</a>
+          <a href="https://github.com/vamsi0409/Customer-Churn-Prediction" target="_blank" class="project-link secondary">GitHub</a>
+        </div>
       </div>
     </div>
 
-    <!-- PROJECT 2 — Youth AI -->
+    <!-- PROJECT 2 — SALES -->
     <div class="project-card reverse">
       <div class="project-img">
-        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=85" alt="AI Dashboard" />
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=85" alt="Sales Analytics Dashboard" />
       </div>
       <div class="project-info">
-        <p class="project-tag">AI Governance · 2024</p>
+        <p class="project-tag">Business Intelligence · Sales Analytics · Nov 2025 – Jan 2026</p>
         <p class="project-num">Featured Project — 02</p>
-        <h3 class="project-title">Youth AI Impact <em>Monitoring Dashboard</em></h3>
-        <p class="project-desc">A city-scale AI governance tool — 7-page interactive web dashboard tracking youth behavioral risk from AI usage, built on TOGAF enterprise architecture for scalable deployment.</p>
+        <h3 class="project-title">Sales &amp; Revenue <em>Analytics</em></h3>
+        <p class="project-desc">Analyzed $2.3M in sales across 9,994 orders and 4 regions. Found the Tables sub-category losing $17,725 despite $206K in revenue — high sales does not always mean high profitability.</p>
         <div class="project-tags">
-          <span class="ptag">HTML/CSS/JS</span><span class="ptag">Chart.js</span><span class="ptag">MySQL</span><span class="ptag">Python</span><span class="ptag">TOGAF</span>
+          <span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">Tableau</span><span class="ptag">Pandas</span><span class="ptag">Matplotlib</span>
         </div>
         <ul class="project-bullets">
-          <li>Normalized MySQL dataset with synthetic data calibrated against 4 peer-reviewed academic studies</li>
-          <li>3 custom KPIs: AI Dependence Score, Physical Wellness Risk Index, Decision Autonomy Rate</li>
-          <li>Real-time filtering by age group and AI tool type — hosted live on GitHub Pages</li>
-          <li>TOGAF enterprise framework for scalable city-level AI governance deployment</li>
+          <li>West region 14.9% profit margin vs Central 7.9% — $69,000 gap identified</li>
+          <li>Tables sub-category: $206,966 sales, -$17,725 profit — biggest profit drain</li>
+          <li>Top revenue customer ($25,043) actually unprofitable at -$1,980</li>
+          <li>8 SQL queries — regional performance, loss-making segments, customer rankings</li>
         </ul>
+        <div class="project-links">
+          <a href="https://public.tableau.com/authoring/SalesRevenueAnalyticsDashboard/SalesRevenueAnalyticsDashboard#1" target="_blank" class="project-link">Live Dashboard</a>
+          <a href="https://github.com/vamsi0409/Sales-Revenue-Analytics" target="_blank" class="project-link secondary">GitHub</a>
+        </div>
       </div>
     </div>
 
-    <!-- PROJECT 3 — Healthcare (NEW) -->
+    <!-- PROJECT 3 — COVID -->
     <div class="project-card">
       <div class="project-img">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=85" alt="Healthcare Analytics" />
+        <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=900&q=85" alt="COVID Healthcare Dashboard" />
       </div>
       <div class="project-info">
-        <p class="project-tag">Healthcare Analytics · 2026</p>
+        <p class="project-tag">Healthcare Analytics · Public Health · Feb – Apr 2026</p>
         <p class="project-num">Featured Project — 03</p>
-        <h3 class="project-title">Healthcare Patient Stay <em>Analysis</em></h3>
-        <p class="project-desc">End-to-end healthcare analytics project — 300,000+ patient records analyzed to uncover key drivers of hospital stay length and cost, surfacing actionable insights for resource planning.</p>
+        <h3 class="project-title">COVID-19 Healthcare <em>Analysis</em></h3>
+        <p class="project-desc">Analyzed 15,633 state-level daily records across 56 US states. New York's 3.85% fatality rate was double the national average of 1.88% despite fewer cases than California — healthcare capacity overwhelmed before treatments were established.</p>
         <div class="project-tags">
-          <span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">MySQL</span><span class="ptag">Matplotlib</span><span class="ptag">Kaggle</span>
+          <span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">HTML/JS</span><span class="ptag">Chart.js</span><span class="ptag">Seaborn</span>
         </div>
         <ul class="project-bullets">
-          <li>Analyzed 300,000+ patient records — data cleaning, null handling, duplicate removal, and High-Risk patient feature engineering</li>
-          <li>Wrote 3 SQL queries to extract department KPIs, average cost by severity of illness, and high-risk patient counts by age group</li>
-          <li>Built 3 Matplotlib visualizations — avg hospital stay by department, patient count by age group, and severity distribution pie chart</li>
-          <li>Identified key factors driving longer hospital stays, delivering data-backed recommendations for patient flow optimization</li>
+          <li>15.7M+ cases analyzed · 282K+ deaths · 1.88% national fatality rate</li>
+          <li>New York 3.85% fatality rate — double the national average despite fewer cases than CA</li>
+          <li>California averaged 4,879 daily new cases · New York averaged 97.7 daily deaths</li>
+          <li>8 SQL queries + interactive HTML dashboard deployed on GitHub Pages</li>
         </ul>
+        <div class="project-links">
+          <a href="https://vamsi0409.github.io/COVID-19-Healthcare-Analysis/index.html" target="_blank" class="project-link">Live Dashboard</a>
+          <a href="https://github.com/vamsi0409/COVID-19-Healthcare-Analysis" target="_blank" class="project-link secondary">GitHub</a>
+        </div>
       </div>
     </div>
 
   </div>
 
-  <!-- Metrics -->
+    <!-- PROJECT 4 — YOUTH AI -->
+    <div class="project-card reverse">
+      <div class="project-img">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=85" alt="Youth AI Dashboard" />
+      </div>
+      <div class="project-info">
+        <p class="project-tag">Academic Research · People Analytics · Jan – May 2026</p>
+        <p class="project-num">Academic Project — 04</p>
+        <h3 class="project-title">Youth AI Impact <em>Monitoring</em></h3>
+        <p class="project-desc">Master's research project at Saint Louis University analyzing AI adoption impact on youth learning outcomes across demographic segments. Built for the Department of Information Systems as a Data Analyst supporting faculty leadership.</p>
+        <div class="project-tags">
+          <span class="ptag">Power BI</span><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">HTML/JS</span><span class="ptag">Chart.js</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Analyzed AI adoption behavioral data across multiple youth demographic segments using Python and SQL</li>
+          <li>Built 7-page interactive Power BI dashboard with DAX calculations for faculty leadership review</li>
+          <li>Defined 3 custom KPIs — AI Dependence Score, Physical Wellness Risk Index, Decision Autonomy Rate</li>
+          <li>Collaborated with faculty advisors from scoping through final presentation of strategic recommendations</li>
+        </ul>
+      </div>
+    </div>
+
   <div class="project-metrics">
-    <div class="metric">
-      <div class="metric-num">3</div>
-      <div class="metric-label">Custom KPIs Engineered</div>
-    </div>
-    <div class="metric">
-      <div class="metric-num">5</div>
-      <div class="metric-label">Power BI Visualizations</div>
-    </div>
-    <div class="metric">
-      <div class="metric-num">4</div>
-      <div class="metric-label">Peer-Reviewed Studies</div>
-    </div>
+    <div class="metric"><div class="metric-num">32K+</div><div class="metric-label">Total Records Analyzed</div></div>
+    <div class="metric"><div class="metric-num">24</div><div class="metric-label">SQL Queries Written</div></div>
+    <div class="metric"><div class="metric-num">4</div><div class="metric-label">Completed Projects</div></div>
+    <div class="metric"><div class="metric-num">80.4%</div><div class="metric-label">ML Model Accuracy</div></div>
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
   <p class="section-label">Education</p>
   <h2 class="section-title">Academic <em>Journey.</em></h2>
   <div class="edu-grid">
     <div class="edu-card">
-      <div class="edu-img">
-        <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=900&q=85" alt="Saint Louis University" />
-      </div>
+      <div class="edu-img"><img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=900&q=85" alt="Saint Louis University" /></div>
       <div class="edu-body">
         <p class="edu-badge">Graduate Degree</p>
         <h3 class="edu-title">Master of Science in<br/>Information Systems</h3>
         <p class="edu-school">Saint Louis University — St. Louis, MO, USA</p>
-        <p class="edu-date">Expected May 2026</p>
-        <p class="edu-desc">Data analytics, cloud infrastructure, enterprise information architecture, and full-stack business intelligence development with real-world project experience.</p>
+        <p class="edu-date">May 2026 · GPA 3.5/4.0</p>
+        <p class="edu-desc">Data analytics, machine learning, cloud infrastructure, enterprise information architecture, and full-stack business intelligence development with real-world project experience.</p>
       </div>
     </div>
     <div class="edu-card">
-      <div class="edu-img">
-        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=900&q=85" alt="NRI Institute" />
-      </div>
+      <div class="edu-img"><img src="https://images.unsplash.com/photo-1562774053-701939374585?w=900&q=85" alt="NRI Institute" /></div>
       <div class="edu-body">
         <p class="edu-badge">Undergraduate Degree</p>
         <h3 class="edu-title">Bachelor of Engineering in<br/>Computer Science</h3>
         <p class="edu-school">NRI Institute of Technology — Guntur, AP, India</p>
-        <p class="edu-date">Graduated May 2022</p>
-        <p class="edu-desc">Algorithms, data structures, databases, networking, and software engineering — with Java and Python specialization and strong systems design exposure.</p>
+        <p class="edu-date">May 2023 · GPA 3.1/4.0</p>
+        <p class="edu-desc">Algorithms, data structures, databases, networking, and software engineering — with Python specialization and strong systems design exposure.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CERTS -->
 <section id="certs">
   <p class="section-label">Credentials</p>
   <h2 class="section-title">Verified <em>Expertise.</em></h2>
   <div class="certs-list">
     <div class="cert-card">
       <div class="cert-icon">☁️</div>
-      <div>
-        <p class="cert-num">01</p>
-        <p class="cert-title">AWS Python Programming Certification</p>
-        <p class="cert-issuer">Amazon Web Services</p>
-      </div>
+      <div><p class="cert-num">01</p><p class="cert-title">AWS Certified Cloud Practitioner</p><p class="cert-issuer">Amazon Web Services</p></div>
     </div>
     <div class="cert-card">
       <div class="cert-icon">🗄️</div>
-      <div>
-        <p class="cert-num">02</p>
-        <p class="cert-title">SQL / Database Management Certification</p>
-        <p class="cert-issuer">Database Management</p>
-      </div>
+      <div><p class="cert-num">02</p><p class="cert-title">SQL / Database Management</p><p class="cert-issuer">Database Management Certification</p></div>
     </div>
     <div class="cert-card">
-      <div class="cert-icon">🖥️</div>
-      <div>
-        <p class="cert-num">03</p>
-        <p class="cert-title">IT Skills — Networking &amp; Troubleshooting</p>
-        <p class="cert-issuer">Windows · macOS · Microsoft Office</p>
-      </div>
+      <div class="cert-icon">🐍</div>
+      <div><p class="cert-num">03</p><p class="cert-title">Python Programming Certification</p><p class="cert-issuer">Python Institute</p></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <p class="section-label">Contact</p>
   <div class="contact-grid">
-    <div class="contact-img">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=85" alt="Office" />
-    </div>
+    <div class="contact-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=85" alt="Office" /></div>
     <div class="contact-body">
       <h2>Let's Build <em>Something</em> Great.</h2>
-      <p>Open to full-time roles, internships, and meaningful collaborations in data analytics and information systems. Based in St. Louis, MO.</p>
+      <p>Open to full-time Data Analyst and Business Intelligence roles. Based in St. Louis, MO — open to relocation and remote opportunities.</p>
       <div class="contact-links">
         <a href="mailto:Vamsikrishna.b7891@gmail.com" class="clink">
           <div class="clink-icon">✉</div>
@@ -752,6 +452,10 @@
         <a href="https://www.linkedin.com/in/vamsi-krishna09042003" target="_blank" class="clink">
           <div class="clink-icon">in</div>
           <div><div class="clink-label">LinkedIn</div><div class="clink-value">vamsi-krishna09042003</div></div>
+        </a>
+        <a href="https://github.com/vamsi0409" target="_blank" class="clink">
+          <div class="clink-icon">⌥</div>
+          <div><div class="clink-label">GitHub</div><div class="clink-value">github.com/vamsi0409</div></div>
         </a>
         <a href="tel:+13143661497" class="clink">
           <div class="clink-icon">☎</div>
@@ -762,14 +466,13 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-name">V. Batchu</div>
-  <div class="footer-copy">© 2025 Vamsi Batchu — Data Analyst</div>
+  <div class="footer-copy">© 2026 Vamsi Batchu — Data Analyst</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/vamsi-krishna09042003" target="_blank">LinkedIn</a>
+    <a href="https://github.com/vamsi0409" target="_blank">GitHub</a>
     <a href="mailto:Vamsikrishna.b7891@gmail.com">Email</a>
-    <a href="#">GitHub</a>
   </div>
 </footer>
 
